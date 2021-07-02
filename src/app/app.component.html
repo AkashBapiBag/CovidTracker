@@ -1,0 +1,119 @@
+<div style="background-color:	#0080ff;">
+    <h4 class="p-2" style="color:white; text-align:center;">COVID-19 Live Status With Country</h4>
+</div>
+
+<div class="container">
+
+    <marquee>
+        <h2 class="font-weight-bold font-italic">Stay Safe , Stay Strong and Stay Home</h2>
+    </marquee>
+    <br>
+    <table class="table table-bordered border-danger text-center ">
+        <tr>
+            <th colspan="3" class="table-primary font-italic p-1 font-weight-bold text-black"> Overall Data Worldwide :</th>
+        </tr>
+        <tr>
+            <th class="table-warning font-italic p-1 font-weight-bold text-black">Total Confirmed Worldwide :</th>
+            <th class="table-danger font-italic p-1 font-weight-bold text-black">Total Deaths Worldwide :</th>
+            <th class="table-success font-italic p-1 font-weight-bold text-black">Total Recovered Worldwide :</th>
+        </tr>
+        <tr>
+            <td class="text-warning font-weight-bold p-1 "> {{TotalConfirmed}}</td>
+            <td class="text-danger font-weight-bold p-1"> {{TotalDeaths}}</td>
+            <td class="text-success font-weight-bold p-1"> {{TotalRecovered}}</td>
+        </tr>
+        <tr>
+            <th colspan="3" class="table-primary font-italic p-1 font-weight-bold text-black"> Today's Data Worldwide :</th>
+        </tr>
+        <tr>
+            <th class="table-warning font-italic p-1 font-weight-bold text-black">Today's Confirmed Worldwide :</th>
+            <th class="table-danger font-italic p-1 font-weight-bold text-black">Today's Deaths Worldwide :</th>
+            <th class="table-success font-italic p-1 font-weight-bold text-black">Today's Recovered Worldwide :</th>
+        </tr>
+        <tr>
+            <td class="text-warning font-weight-bold p-1"> {{TodayConfirmed}}</td>
+            <td class="text-danger font-weight-bold p-1"> {{TodayDeaths}}</td>
+            <td class="text-success font-weight-bold p-1"> {{TodayRecovered}}</td>
+        </tr>
+    </table>
+
+    <div align="center">
+        <label class="font-italic p-2 font-weight-bold">Country Name :</label>
+        <select class="custom-select custom-select-sm " (change)="getCountry($event.target.value); getData()">
+    <option *ngFor="let country of countries" value={{country.country}}>
+    {{country.country}}
+    </option>
+  </select>
+
+        <br>
+        <br>
+        <div class="container" *ngIf=Confirmed>
+            <div class="row">
+                <div class="col-3"><img src="{{pic}}" alt="" width="260" height="135"></div>
+                <div class="col-9">
+                    <table class="table table-bordered border-danger text-center ">
+                        <tr>
+                            <th rowspan="2" class="table-primary font-weight-bold p-1">Country</th>
+                            <th class="table-warning font-weight-bold p-1">Total Confirmed</th>
+                            <th class="table-success font-weight-bold p-1">Total Recovered</th>
+                            <th class="table-danger font-weight-bold p-1">Total Deaths</th>
+                            <th class="table-primary font-weight-bold p-1">Critical Case</th>
+                        </tr>
+                        <tr>
+                            <!-- <td class="table-success font-weight-bold p-1">{{Country}}</td> -->
+                            <td class="text-warning font-weight-bold p-1">{{Confirmed}}</td>
+                            <td class="text-success font-weight-bold p-1">{{Recovered}}</td>
+                            <td class="text-danger font-weight-bold p-1">{{Deaths}}</td>
+                            <td class="table-secondary font-weight-bold p-1">{{Critical}}</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="table-success font-weight-bold p-1">{{Country}}</td>
+                            <th class="table-warning font-weight-bold p-1">Today's Cases</th>
+                            <th class="table-success font-weight-bold p-1">Today's Recovered</th>
+                            <th class="table-danger font-weight-bold p-1">Today's Deaths</th>
+                            <th class="table-primary font-weight-bold p-1">Total Active</th>
+                        </tr>
+                        <tr>
+                            <!-- <td class="table-success font-weight-bold p-1">{{Country}}</td> -->
+                            <td class="text-warning font-weight-bold p-1">{{TodayCases}}</td>
+                            <td class="text-success font-weight-bold p-1">{{TodayRecovered1}}</td>
+                            <td class="text-danger font-weight-bold p-1">{{TodayDeaths1}}</td>
+                            <td class="table-secondary font-weight-bold p-1">{{Active}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div *ngIf=!Confirmed>
+            <h3>Data Worldwide : </h3>
+            <table class="table table-bordered border-danger text-center ">
+                <tr>
+                    <th class="table-primary font-weight-bold p-1">Country</th>
+                    <th class="table-warning font-weight-bold p-1">Total Confirmed</th>
+                    <th class="table-success font-weight-bold p-1">Total Recovered</th>
+                    <th class="table-danger font-weight-bold p-1">Total Deaths</th>
+                    <!-- <th class="table-warning font-weight-bold p-1">Today's Cases</th>
+                    <th class="table-success font-weight-bold p-1">Today's Recovered</th>
+                    <th class="table-danger font-weight-bold p-1">Today's Deaths</th>
+                    <th class="table-primary font-weight-bold p-1">Total Active</th> -->
+                </tr>
+                <tr *ngFor="let country of countries;let i=index;">
+                    <td class=" text-info font-weight-bold p-1">{{all[i].country}}</td>
+                    <td class="text-warning font-weight-bold p-1">{{all[i].cases}}</td>
+                    <td class="text-success font-weight-bold p-1">{{all[i].recovered}}</td>
+                    <td class="text-danger font-weight-bold p-1">{{all[i].deaths}}</td>
+                    <!-- <td class="text-warning font-weight-bold p-1">{{all[i].todayCases}}</td>
+                    <td class="text-success font-weight-bold p-1">{{all[i].recovered}}</td>
+                    <td class="text-danger font-weight-bold p-1">{{all[i].todayDeaths}}</td>
+                    <td>{{all[i].active}}</td> -->
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+
+
+    <div class="fixed-bottom" style="background-color:#00bfff;">
+        <h6 class="p-0" style="color:black; text-align:center;">Last Updated On: {{Update | date:'medium'}}</h6>
+    </div>
