@@ -1,119 +1,79 @@
-<div style="background-color:	#0080ff;">
-    <h4 class="p-2" style="color:white; text-align:center;">COVID-19 Live Status With Country</h4>
-</div>
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" routerLink="symptoms">CovidTracker</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" routerLink="symptoms">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" routerLink="home">symptoms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" routerLink="home">Contact Us</a>
+                </li>
+            </ul>
 
-<div class="container">
-
-    <marquee>
-        <h2 class="font-weight-bold font-italic">Stay Safe , Stay Strong and Stay Home</h2>
-    </marquee>
-    <br>
-    <table class="table table-bordered border-danger text-center ">
-        <tr>
-            <th colspan="3" class="table-primary font-italic p-1 font-weight-bold text-black"> Overall Data Worldwide :</th>
-        </tr>
-        <tr>
-            <th class="table-warning font-italic p-1 font-weight-bold text-black">Total Confirmed Worldwide :</th>
-            <th class="table-danger font-italic p-1 font-weight-bold text-black">Total Deaths Worldwide :</th>
-            <th class="table-success font-italic p-1 font-weight-bold text-black">Total Recovered Worldwide :</th>
-        </tr>
-        <tr>
-            <td class="text-warning font-weight-bold p-1 "> {{TotalConfirmed}}</td>
-            <td class="text-danger font-weight-bold p-1"> {{TotalDeaths}}</td>
-            <td class="text-success font-weight-bold p-1"> {{TotalRecovered}}</td>
-        </tr>
-        <tr>
-            <th colspan="3" class="table-primary font-italic p-1 font-weight-bold text-black"> Today's Data Worldwide :</th>
-        </tr>
-        <tr>
-            <th class="table-warning font-italic p-1 font-weight-bold text-black">Today's Confirmed Worldwide :</th>
-            <th class="table-danger font-italic p-1 font-weight-bold text-black">Today's Deaths Worldwide :</th>
-            <th class="table-success font-italic p-1 font-weight-bold text-black">Today's Recovered Worldwide :</th>
-        </tr>
-        <tr>
-            <td class="text-warning font-weight-bold p-1"> {{TodayConfirmed}}</td>
-            <td class="text-danger font-weight-bold p-1"> {{TodayDeaths}}</td>
-            <td class="text-success font-weight-bold p-1"> {{TodayRecovered}}</td>
-        </tr>
-    </table>
-
-    <div align="center">
-        <label class="font-italic p-2 font-weight-bold">Country Name :</label>
-        <select class="custom-select custom-select-sm " (change)="getCountry($event.target.value); getData()">
-    <option *ngFor="let country of countries" value={{country.country}}>
-    {{country.country}}
-    </option>
-  </select>
-
-        <br>
-        <br>
-        <div class="container" *ngIf=Confirmed>
-            <div class="row">
-                <div class="col-3"><img src="{{pic}}" alt="" width="260" height="135"></div>
-                <div class="col-9">
-                    <table class="table table-bordered border-danger text-center ">
-                        <tr>
-                            <th rowspan="2" class="table-primary font-weight-bold p-1">Country</th>
-                            <th class="table-warning font-weight-bold p-1">Total Confirmed</th>
-                            <th class="table-success font-weight-bold p-1">Total Recovered</th>
-                            <th class="table-danger font-weight-bold p-1">Total Deaths</th>
-                            <th class="table-primary font-weight-bold p-1">Critical Case</th>
-                        </tr>
-                        <tr>
-                            <!-- <td class="table-success font-weight-bold p-1">{{Country}}</td> -->
-                            <td class="text-warning font-weight-bold p-1">{{Confirmed}}</td>
-                            <td class="text-success font-weight-bold p-1">{{Recovered}}</td>
-                            <td class="text-danger font-weight-bold p-1">{{Deaths}}</td>
-                            <td class="table-secondary font-weight-bold p-1">{{Critical}}</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="2" class="table-success font-weight-bold p-1">{{Country}}</td>
-                            <th class="table-warning font-weight-bold p-1">Today's Cases</th>
-                            <th class="table-success font-weight-bold p-1">Today's Recovered</th>
-                            <th class="table-danger font-weight-bold p-1">Today's Deaths</th>
-                            <th class="table-primary font-weight-bold p-1">Total Active</th>
-                        </tr>
-                        <tr>
-                            <!-- <td class="table-success font-weight-bold p-1">{{Country}}</td> -->
-                            <td class="text-warning font-weight-bold p-1">{{TodayCases}}</td>
-                            <td class="text-success font-weight-bold p-1">{{TodayRecovered1}}</td>
-                            <td class="text-danger font-weight-bold p-1">{{TodayDeaths1}}</td>
-                            <td class="table-secondary font-weight-bold p-1">{{Active}}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
         </div>
-        <div *ngIf=!Confirmed>
-            <h3>Data Worldwide : </h3>
-            <table class="table table-bordered border-danger text-center ">
-                <tr>
-                    <th class="table-primary font-weight-bold p-1">Country</th>
-                    <th class="table-warning font-weight-bold p-1">Total Confirmed</th>
-                    <th class="table-success font-weight-bold p-1">Total Recovered</th>
-                    <th class="table-danger font-weight-bold p-1">Total Deaths</th>
-                    <!-- <th class="table-warning font-weight-bold p-1">Today's Cases</th>
-                    <th class="table-success font-weight-bold p-1">Today's Recovered</th>
-                    <th class="table-danger font-weight-bold p-1">Today's Deaths</th>
-                    <th class="table-primary font-weight-bold p-1">Total Active</th> -->
-                </tr>
-                <tr *ngFor="let country of countries;let i=index;">
-                    <td class=" text-info font-weight-bold p-1">{{all[i].country}}</td>
-                    <td class="text-warning font-weight-bold p-1">{{all[i].cases}}</td>
-                    <td class="text-success font-weight-bold p-1">{{all[i].recovered}}</td>
-                    <td class="text-danger font-weight-bold p-1">{{all[i].deaths}}</td>
-                    <!-- <td class="text-warning font-weight-bold p-1">{{all[i].todayCases}}</td>
-                    <td class="text-success font-weight-bold p-1">{{all[i].recovered}}</td>
-                    <td class="text-danger font-weight-bold p-1">{{all[i].todayDeaths}}</td>
-                    <td>{{all[i].active}}</td> -->
-                </tr>
-            </table>
-        </div>
-
+    </div>
+</nav> -->
+<header class="text-gray-600 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a routerLink="symptoms" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+            <span class="ml-3 text-xl" routerLink="symptoms"><a>CovidTracker</a></span>
+        </a>
+        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-gray-900" routerLink="symptoms">Home</a>
+            <a class="mr-5 hover:text-gray-900" routerLink="home">Symptoms</a>
+            <a class="mr-5 hover:text-gray-900" routerLink="contact">Contact Us</a>
+        </nav>
 
     </div>
+</header>
+<router-outlet></router-outlet>
 
-
-    <div class="fixed-bottom" style="background-color:#00bfff;">
-        <h6 class="p-0" style="color:black; text-align:center;">Last Updated On: {{Update | date:'medium'}}</h6>
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+<footer class="text-gray-600 body-font">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+            <span class="ml-3 text-xl">Tailblocks</span>
+        </a>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2021 Akash —
+            <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@AkashBag</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a class="text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
     </div>
+</footer>

@@ -1,0 +1,311 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/symptoms']">symptoms <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 text-white" role="search">COVID-19 Live Status With Country</form>
+    </div>
+</nav> -->
+
+<div class="container">
+
+    <marquee>
+        <h2 class="font-weight-bold font-italic">Stay Safe , Stay Strong and Stay Home</h2>
+    </marquee>
+
+    <div class="card  border-primary mb-2 d-flex justify-content-around" style="max-width:100%;min-width:100%;" id="card">
+        <div class="card-header bg-secondary text-center text-white">
+            <h3>Overall Data Worldwide :</h3>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-around" id="mian">
+        <div class="card  border-warning mb-3" style="max-width:18rem;min-width:18rem;" id="card">
+            <div class="card-header"></div>
+            <div class="card-body text-dark">
+                <strong><h3 class="card-title text-ceter">{{TotalConfirmed}}</h3></strong>
+            </div>
+            <div class="card-footer bg-warning border-warning text-ceter text-white font-weight-bold">
+                <h2>Confirmed</h2>
+            </div>
+        </div>
+
+        <div class="card border-danger mb-3 " style="max-width:18rem;min-width:18rem;" id="card">
+            <div class="card-header"></div>
+            <div class="card-body text-dark">
+                <strong><h3 class="card-title text-ceter">{{TotalDeaths}}</h3></strong>
+            </div>
+            <div class="card-footer bg-danger border-danger text-ceter text-white font-weight-bold">
+                <h2>Deaths</h2>
+            </div>
+        </div>
+        <div class="card border-success mb-3 " style="max-width:18rem;min-width:18rem;" id="card">
+            <div class="card-header"></div>
+            <div class="card-body text-dark">
+                <strong><h3 class="card-title text-ceter">{{TotalRecovered}}</h3></strong>
+            </div>
+            <div class="card-footer bg-success border-success text-ceter text-white font-weight-bold">
+                <h2>Recovered</h2>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="card  border-primary mb-3 d-flex justify-content-around" style="max-width:100%;min-width:100%;" id="card">
+        <div class="card-header bg-secondary text-center text-white">
+            <h3>Today's Data Worldwide :</h3>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-around" id="mian">
+        <div class="card border-warning mb-3 " style="max-width:18rem;min-width:18rem;" id="card">
+            <div class="card-header"></div>
+            <div class="card-body text-dark">
+                <strong> <h3 class="card-title text-ceter">{{TodayConfirmed}}</h3></strong>
+            </div>
+            <div class="card-footer bg-warning border-warning text-ceter text-white font-weight-bold">
+                <h2>Confirmed</h2>
+            </div>
+        </div>
+
+        <div class="card border-danger mb-3 " style="max-width:18rem;min-width:18rem;" id="card">
+            <div class="card-header"></div>
+            <div class="card-body text-dark">
+                <strong><h3 class="card-title text-ceter">{{TotalDeaths}}</h3></strong>
+            </div>
+            <div class="card-footer bg-danger border-danger text-ceter text-white font-weight-bold">
+                <h2>Deaths</h2>
+            </div>
+        </div>
+        <div class="card border-success mb-3 " style="max-width:18rem;min-width:18rem;" id="card">
+            <div class="card-header"></div>
+            <div class="card-body text-dark">
+                <strong><h3 class="card-title text-ceter">{{TotalRecovered}}</h3></strong>
+            </div>
+            <div class="card-footer bg-success border-success text-ceter text-white font-weight-bold">
+                <h2>Recovered</h2>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <!-- <div class="card-deck">
+        <div class="card bg-info">
+            <div class="card-body text-center">
+                <p class="table-warning font-italic p-1 font-weight-bold text-black">Total Confirmed Worldwide :</p>
+                <div class="card bg-warning">
+                    <div class="card-body text-center">
+                        <p class="card-text font-weight-bold text-white">{{TotalConfirmed}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card bg-primary">
+            <div class="card-body text-center">
+                <p class="table-danger font-italic p-1 font-weight-bold text-black">Total Deaths Worldwide :</p>
+                <div class="card bg-danger">
+                    <div class="card-body text-center">
+                        <p class="card-text font-weight-bold text-white">{{TotalDeaths}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card bg-secondary">
+            <div class="card-body text-center">
+                <p class="table-success font-italic p-1 font-weight-bold text-black">Total Recovered Worldwide :</p>
+                <div class="card bg-success">
+                    <div class="card-body text-center">
+                        <p class="card-text font-weight-bold text-white">{{TotalRecovered}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card-deck">
+        <div class="card bg-info">
+            <div class="card-body text-center">
+                <p class="table-warning font-italic p-1 font-weight-bold text-black">Today's Confirmed Worldwide : </p>
+                <div class="card bg-warning">
+                    <div class="card-body text-center">
+                        <p class="card-text font-weight-bold text-white">{{TodayConfirmed}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card bg-primary">
+            <div class="card-body text-center">
+                <p class="table-danger font-italic p-1 font-weight-bold text-black">Today's Deaths Worldwide :</p>
+                <div class="card bg-danger">
+                    <div class="card-body text-center">
+                        <p class="card-text font-weight-bold text-white">{{TodayDeaths}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card bg-secondary">
+            <div class="card-body text-center">
+                <p class="table-success font-italic p-1 font-weight-bold text-black">Today's Recovered Worldwide :</p>
+                <div class="card bg-success">
+                    <div class="card-body text-center">
+                        <p class="card-text font-weight-bold text-white">{{TodayRecovered}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <hr>
+    <br>
+    <!-- <table class="table table-bordered border-danger text-center ">
+        <tr>
+            <th colspan="3" class="table-primary font-italic p-1 font-weight-bold text-black"> Overall Data Worldwide :</th>
+        </tr>
+        <tr>
+            <th class="table-warning font-italic p-1 font-weight-bold text-black">Total Confirmed Worldwide :</th>
+            <th class="table-danger font-italic p-1 font-weight-bold text-black">Total Deaths Worldwide :</th>
+            <th class="table-success font-italic p-1 font-weight-bold text-black">Total Recovered Worldwide :</th>
+        </tr>
+        <tr>
+            <td class="text-warning font-weight-bold p-1 "> {{TotalConfirmed}}</td>
+            <td class="text-danger font-weight-bold p-1"> {{TotalDeaths}}</td>
+            <td class="text-success font-weight-bold p-1"> {{TotalRecovered}}</td>
+        </tr>
+        <tr>
+            <th colspan="3" class="table-primary font-italic p-1 font-weight-bold text-black"> Today's Data Worldwide :</th>
+        </tr>
+        <tr>
+            <th class="table-warning font-italic p-1 font-weight-bold text-black">Today's Confirmed Worldwide :</th>
+            <th class="table-danger font-italic p-1 font-weight-bold text-black">Today's Deaths Worldwide :</th>
+            <th class="table-success font-italic p-1 font-weight-bold text-black">Today's Recovered Worldwide :</th>
+        </tr>
+        <tr>
+            <td class="text-warning font-weight-bold p-1"> {{TodayConfirmed}}</td>
+            <td class="text-danger font-weight-bold p-1"> {{TodayDeaths}}</td>
+            <td class="text-success font-weight-bold p-1"> {{TodayRecovered}}</td>
+        </tr>
+    </table> -->
+
+    <div align="center">
+        <label class="font-italic p-2 font-weight-bold">Country Name :</label>
+        <select class="custom-select custom-select-sm " (change)="getCountry($event.target.value); getData()">
+    <option *ngFor="let country of countries" value={{country.country}}>
+    {{country.country}}
+    </option>
+  </select>
+
+        <br>
+        <br>
+        <div *ngIf=Confirmed>
+
+            <div class="aligncenter" id="pic"><img src="{{pic}}" id="optionalstuff" alt="" width="260" height="135"></div>
+            <br>
+            <div class="table-responsive">
+                <table class="table text-center" style="width:80%">
+                    <tr>
+                        <th colspan="3" class="table-primary font-weight-bold p-1 ">{{Country}}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-dark text-white font-weight-bold p-1">Data</th>
+                        <th class="table-dark text-white font-weight-bold p-1">Overall</th>
+                        <th class="table-dark text-white font-weight-bold p-1">Today</th>
+                    </tr>
+                    <tr>
+                        <th class="table-dark text-white font-weight-bold p-1">Confirmed</th>
+                        <th class="table-warning font-weight-bold p-1">{{Recovered}}</th>
+                        <th class="table-warning font-weight-bold p-1">{{TodayCases}}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-dark text-white font-weight-bold p-1">Recovered</th>
+                        <th class="table-success font-weight-bold p-1">{{Recovered}}</th>
+                        <th class="table-success font-weight-bold p-1">{{TodayRecovered1}}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-dark text-white font-weight-bold p-1">Deaths</th>
+                        <th class="table-danger font-weight-bold p-1">{{Deaths}}</th>
+                        <th class="table-danger font-weight-bold p-1">{{TodayDeaths}}</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- <div id="tablee" class="container" *ngIf=Confirmed>
+            <div class="row">
+                <div class="aligncenter" id="pic"><img src="{{pic}}" id="optionalstuff" alt="" width="260" height="135"></div>
+                <br>
+                <div class="">
+                    <table class="table table-bordered border-danger text-center ">
+                        <tr>
+                            <th rowspan="2" class="table-primary font-weight-bold p-1">Country</th>
+                            <th class="table-warning font-weight-bold p-1">Total Confirmed</th>
+                            <th class="table-success font-weight-bold p-1">Total Recovered</th>
+                            <th class="table-danger font-weight-bold p-1">Total Deaths</th>
+                            <th class="table-primary font-weight-bold p-1">Critical Case</th>
+                        </tr>
+                        <tr>
+                            
+                            <td class="table-secondary text-black  font-weight-bold p-1">{{Confirmed}}</td>
+                            <td class="table-secondary text-black font-weight-bold p-1">{{Recovered}}</td>
+                            <td class="table-secondary text-black font-weight-bold p-1">{{Deaths}}</td>
+                            <td class="table-secondary font-weight-bold p-1">{{Critical}}</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="table-success font-weight-bold p-1">{{Country}}</td>
+                            <th class="table-warning font-weight-bold p-1">Today's Cases</th>
+                            <th class="table-success font-weight-bold p-1">Today's Recovered</th>
+                            <th class="table-danger font-weight-bold p-1">Today's Deaths</th>
+                            <th class="table-primary font-weight-bold p-1">Total Active</th>
+                        </tr>
+                        <tr>
+                            
+                            <td class="table-secondary text-black font-weight-bold p-1">{{TodayCases}}</td>
+                            <td class="table-secondary text-black font-weight-bold p-1">{{TodayRecovered1}}</td>
+                            <td class="table-secondary text-black font-weight-bold p-1">{{TodayDeaths1}}</td>
+                            <td class="table-secondary font-weight-bold p-1">{{Active}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div *ngIf=!Confirmed> -->
+        <!-- <h3>Data Worldwide : </h3>
+            <table class="table table-bordered border-danger text-center ">
+                <tr>
+                    <th class="table-primary font-weight-bold p-1">Country</th>
+                    <th class="table-warning font-weight-bold p-1">Total Confirmed</th>
+                    <th class="table-success font-weight-bold p-1">Total Recovered</th>
+                    <th class="table-danger font-weight-bold p-1">Total Deaths</th>
+                </tr>
+                <tr *ngFor="let country of countries;let i=index;">
+                    <td class=" text-info font-weight-bold p-1">{{all[i].country}}</td>
+                    <td class="text-warning font-weight-bold p-1">{{all[i].cases}}</td>
+                    <td class="text-success font-weight-bold p-1">{{all[i].recovered}}</td>
+                    <td class="text-danger font-weight-bold p-1">{{all[i].deaths}}</td>
+                </tr>
+            </table> -->
+        <apx-chart [title]="title" [series]="series" [chart]="chart" [plotOptions]="plotOptions" [dataLabels]="dataLabels" [xaxis]="xaxis"></apx-chart>
+        <apx-chart [title]="title1" [series]="series1" [chart]="chart1" [plotOptions]="plotOptions1" [dataLabels]="dataLabels1" [xaxis]="xaxis1"></apx-chart>
+
+        <!-- </div> -->
+
+
+    </div>
+    <br><br><br><br><br>
+
+    <div class="fixed-bottom" style="background-color:#00bfff;">
+        <h6 class="p-0" style="color:black; text-align:center;">Last Updated On: {{Update | date:'medium'}}</h6>
+    </div>
+
+
+    <!-- <p class="aligncenter">
+        <img src="../assets/Coronavirus-war-920x540.jpg" alt="centered image" />
+    </p> -->
+    <router-outlet>
